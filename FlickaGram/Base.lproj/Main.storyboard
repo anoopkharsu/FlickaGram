@@ -6,7 +6,6 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21207"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
-        <capability name="collection view cell content view" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -58,54 +57,92 @@
                     <navigationItem key="navigationItem" id="RDu-tw-bzU"/>
                     <connections>
                         <outlet property="collectionView" destination="cfv-Z3-3Mw" id="vF1-2B-4dm"/>
+                        <segue destination="V2f-BZ-Lcp" kind="show" identifier="ImagePreview" id="dM6-kd-fcA"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="132" y="-28"/>
+            <point key="canvasLocation" x="68" y="-102"/>
         </scene>
-        <!--View Controller-->
+        <!--Image Preview Controller-->
         <scene sceneID="tmT-As-Lps">
             <objects>
-                <viewController id="V2f-BZ-Lcp" sceneMemberID="viewController">
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ZIt-JQ-iej" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <viewController id="V2f-BZ-Lcp" customClass="ImagePreviewController" customModule="FlickaGram" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="qf7-Dj-SrW">
                         <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" pagingEnabled="YES" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="0hJ-Dk-wIy">
-                                <rect key="frame" x="0.0" y="47" width="390" height="763"/>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" pagingEnabled="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="0hJ-Dk-wIy">
+                                <rect key="frame" x="0.0" y="47" width="390" height="728.66666666666663"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                                <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="hpb-Yd-LC3">
+                                <gestureRecognizers/>
+                                <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="0.0" minimumInteritemSpacing="0.0" id="hpb-Yd-LC3">
                                     <size key="itemSize" width="128" height="128"/>
                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
                                     <size key="footerReferenceSize" width="0.0" height="0.0"/>
                                     <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 </collectionViewFlowLayout>
-                                <cells>
-                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="hwC-Ql-D9d">
-                                        <rect key="frame" x="0.0" y="0.0" width="128" height="128"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="rnz-S8-Ipr">
-                                            <rect key="frame" x="0.0" y="0.0" width="128" height="128"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                        </collectionViewCellContentView>
-                                    </collectionViewCell>
-                                </cells>
+                                <cells/>
+                                <connections>
+                                    <outletCollection property="gestureRecognizers" destination="yYV-F3-nio" appends="YES" id="YH0-QK-S53"/>
+                                </connections>
                             </collectionView>
+                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="1" translatesAutoresizingMaskIntoConstraints="NO" id="rIX-wM-dBN">
+                                <rect key="frame" x="0.0" y="775.66666666666663" width="390" height="34.333333333333371"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SuQ-xW-Fts">
+                                        <rect key="frame" x="0.0" y="0.0" width="194.66666666666666" height="34.333333333333336"/>
+                                        <state key="normal" title="Button"/>
+                                        <buttonConfiguration key="configuration" style="filled" title="Share Link">
+                                            <backgroundConfiguration key="background" cornerRadius="0.0"/>
+                                            <fontDescription key="titleFontDescription" style="UICTFontTextStyleHeadline"/>
+                                            <directionalEdgeInsets key="contentInsets" top="0.0" leading="0.0" bottom="0.0" trailing="0.0"/>
+                                            <color key="baseBackgroundColor" white="0.15097792832167833" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </buttonConfiguration>
+                                        <connections>
+                                            <action selector="shareLinkPressed:" destination="V2f-BZ-Lcp" eventType="touchUpInside" id="Fft-Ai-QhL"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pnq-81-2nC">
+                                        <rect key="frame" x="195.66666666666663" y="0.0" width="194.33333333333337" height="34.333333333333336"/>
+                                        <state key="normal" title="Button"/>
+                                        <buttonConfiguration key="configuration" style="filled" title="Share Image">
+                                            <backgroundConfiguration key="background" cornerRadius="0.0"/>
+                                            <fontDescription key="titleFontDescription" style="UICTFontTextStyleHeadline"/>
+                                            <color key="baseBackgroundColor" white="0.15097792832167833" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </buttonConfiguration>
+                                        <connections>
+                                            <action selector="shareImagePressed:" destination="V2f-BZ-Lcp" eventType="touchUpInside" id="19v-VW-QHQ"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                            </stackView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Zh-ma-Ab0"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="6Zh-ma-Ab0" firstAttribute="trailing" secondItem="0hJ-Dk-wIy" secondAttribute="trailing" id="33X-f3-55Z"/>
+                            <constraint firstItem="rIX-wM-dBN" firstAttribute="top" secondItem="0hJ-Dk-wIy" secondAttribute="bottom" id="6QU-Bp-A7O"/>
                             <constraint firstItem="0hJ-Dk-wIy" firstAttribute="top" secondItem="6Zh-ma-Ab0" secondAttribute="top" id="FmT-NX-iUp"/>
                             <constraint firstItem="0hJ-Dk-wIy" firstAttribute="leading" secondItem="6Zh-ma-Ab0" secondAttribute="leading" id="UYR-fj-wzB"/>
-                            <constraint firstItem="6Zh-ma-Ab0" firstAttribute="bottom" secondItem="0hJ-Dk-wIy" secondAttribute="bottom" id="flC-KF-MnM"/>
+                            <constraint firstItem="rIX-wM-dBN" firstAttribute="leading" secondItem="6Zh-ma-Ab0" secondAttribute="leading" id="dNN-BN-Wuz"/>
+                            <constraint firstItem="6Zh-ma-Ab0" firstAttribute="trailing" secondItem="rIX-wM-dBN" secondAttribute="trailing" id="hZc-DX-6uD"/>
+                            <constraint firstItem="rIX-wM-dBN" firstAttribute="bottom" secondItem="6Zh-ma-Ab0" secondAttribute="bottom" id="qL5-Ob-Wdj"/>
                         </constraints>
                     </view>
+                    <navigationItem key="navigationItem" id="4k1-Mv-YYw"/>
+                    <connections>
+                        <outlet property="collectionView" destination="0hJ-Dk-wIy" id="qMS-vB-aqw"/>
+                    </connections>
                 </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="ZIt-JQ-iej" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <swipeGestureRecognizer direction="down" id="yYV-F3-nio">
+                    <connections>
+                        <action selector="swipeDownRecognized:" destination="V2f-BZ-Lcp" id="BKH-wd-Vr8"/>
+                    </connections>
+                </swipeGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="1142" y="-28"/>
+            <point key="canvasLocation" x="1141.5384615384614" y="-28.436018957345969"/>
         </scene>
     </scenes>
     <resources>

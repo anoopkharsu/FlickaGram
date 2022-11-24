@@ -53,6 +53,7 @@
             <size key="customSize" width="200" height="200"/>
             <connections>
                 <outlet property="imageView" destination="sjO-3B-qlf" id="uLx-f3-KAE"/>
+                <outlet property="labelBackgroundView" destination="a4G-SZ-rM5" id="EJq-up-tDE"/>
                 <outlet property="titleLabelView" destination="BnC-3r-PBA" id="XO1-5Q-qcS"/>
             </connections>
             <point key="canvasLocation" x="246.15384615384613" y="41.232227488151658"/>

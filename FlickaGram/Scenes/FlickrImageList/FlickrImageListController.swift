@@ -8,16 +8,15 @@
 import UIKit
 
 class FlickrImageListController: UIViewController {
-    
     @IBOutlet weak var collectionView: UICollectionView!
     
     var images = [FlickrImageListModels.Photo]()
     let interactor = FlickrImageListInteractor()
+    weak var previewDelegate: FlickrImageListDelegate?
     
     override func viewDidLoad() {
         super.viewDidLoad()
         setup()
-        
     }
     
     func setup() {
@@ -29,8 +28,21 @@ class FlickrImageListController: UIViewController {
         interactor.getNextImages()
     }
     
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if let prevVC = segue.destination as? ImagePreviewController {
+            prevVC.images = self.images
+            previewDelegate = prevVC
+            if let selected = collectionView.indexPathsForSelectedItems, let index = selected.first {
+                prevVC.selectedIndex = index.item
+            }
+            prevVC.getNextImages = {[weak self] in
+                self?.interactor.getNextImages()
+            }
+        }
+    }
 }
 
+// MARK: Collection View
 extension FlickrImageListController:  UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         images.count
@@ -52,12 +64,17 @@ extension FlickrImageListController:  UICollectionViewDataSource, UICollectionVi
         let side = (view.frame.width/2)
         return .init(width: side-0.5, height: side-1)
     }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        performSegue(withIdentifier: "ImagePreview", sender: self)
+    }
 }
 
-
+// MARK: FlickrImageListDelegate
 extension FlickrImageListController: FlickrImageListDelegate {
     func reloadList(_ images: [FlickrImageListModels.Photo]) {
         self.images = images
         collectionView.reloadData()
+        previewDelegate?.reloadList(images)
     }
 }
