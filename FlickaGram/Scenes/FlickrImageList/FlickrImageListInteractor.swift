@@ -17,8 +17,6 @@ class FlickrImageListInteractor {
     
     weak var delegate: FlickrImageListDelegate?
     
-    
-    
     func getNextImages() {
         if fetching {return}
         fetching = true

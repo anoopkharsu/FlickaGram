@@ -19,7 +19,7 @@ class MyImageView: UIImageView {
             self.image = UIImage(data: data)
         } else {
             DispatchQueue.global().async {
-                if let data = try? Data(contentsOf: url) , self.url == url{ // some cache not working(reset) can be improved with urlsession
+                if let data = try? Data(contentsOf: url) , self.url == url{
                     DispatchQueue.main.async {
                         self.image = UIImage(data: data)
                     }

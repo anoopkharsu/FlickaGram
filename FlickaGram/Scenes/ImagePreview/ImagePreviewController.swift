@@ -66,12 +66,12 @@ class ImagePreviewController: UIViewController,TransitionInfo {
         if sender.direction == .down {
             navigationController?.popViewController(animated: true)
         }
-        
     }
 }
 
 //MARK: CollectionView
 extension ImagePreviewController:  UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
+    
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         images.count
     }
@@ -106,8 +106,10 @@ extension ImagePreviewController:  UICollectionViewDataSource, UICollectionViewD
 
 //MARK: FlickrImageListDelegate
 extension ImagePreviewController: FlickrImageListDelegate {
+    
     func reloadList(_ images: [FlickrImageListModels.Photo]) {
         self.images = images
         collectionView.reloadData()
     }
+    
 }

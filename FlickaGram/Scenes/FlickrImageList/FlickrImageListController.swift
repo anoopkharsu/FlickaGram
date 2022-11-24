@@ -13,9 +13,6 @@ class FlickrImageListController: UIViewController {
     var images = [FlickrImageListModels.Photo]()
     let interactor = FlickrImageListInteractor()
     var currentIndex = IndexPath()
-    var cellView: ImageViewCell? {
-        collectionView.cellForItem(at: currentIndex) as? ImageViewCell
-    }
     
     weak var previewDelegate: FlickrImageListDelegate?
     
@@ -52,6 +49,7 @@ class FlickrImageListController: UIViewController {
 
 // MARK: Collection View
 extension FlickrImageListController:  UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
+    
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         images.count
     }
@@ -81,20 +79,27 @@ extension FlickrImageListController:  UICollectionViewDataSource, UICollectionVi
 
 // MARK: FlickrImageListDelegate
 extension FlickrImageListController: FlickrImageListDelegate {
+    
     func reloadList(_ images: [FlickrImageListModels.Photo]) {
         self.images = images
         collectionView.reloadData()
         previewDelegate?.reloadList(images)
         
     }
+    
 }
 
 //MARK: Transition
 extension FlickrImageListController: UINavigationControllerDelegate, TransitionInfo {
+    
     func navigationController(_ navigationController: UINavigationController, animationControllerFor operation: UINavigationController.Operation, from fromVC: UIViewController, to toVC: UIViewController) -> UIViewControllerAnimatedTransitioning? {
         if fromVC is TransitionInfo && toVC is TransitionInfo {
             return MoveElementsTransition()
         }
         return nil
+    }
+    
+    var cellView: ImageViewCell? {
+        collectionView.cellForItem(at: currentIndex) as? ImageViewCell
     }
 }
