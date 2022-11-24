@@ -12,11 +12,17 @@ class FlickrImageListController: UIViewController {
     
     var images = [FlickrImageListModels.Photo]()
     let interactor = FlickrImageListInteractor()
+    var currentIndex = IndexPath()
+    var cellView: ImageViewCell? {
+        collectionView.cellForItem(at: currentIndex) as? ImageViewCell
+    }
+    
     weak var previewDelegate: FlickrImageListDelegate?
     
     override func viewDidLoad() {
         super.viewDidLoad()
         setup()
+        navigationController?.delegate = self
     }
     
     func setup() {
@@ -32,11 +38,13 @@ class FlickrImageListController: UIViewController {
         if let prevVC = segue.destination as? ImagePreviewController {
             prevVC.images = self.images
             previewDelegate = prevVC
-            if let selected = collectionView.indexPathsForSelectedItems, let index = selected.first {
-                prevVC.selectedIndex = index.item
-            }
+            prevVC.selectedIndex = currentIndex
+            
             prevVC.getNextImages = {[weak self] in
                 self?.interactor.getNextImages()
+            }
+            prevVC.indexChanged = {[weak self] index in
+                self?.currentIndex = index
             }
         }
     }
@@ -66,6 +74,7 @@ extension FlickrImageListController:  UICollectionViewDataSource, UICollectionVi
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        currentIndex = indexPath
         performSegue(withIdentifier: "ImagePreview", sender: self)
     }
 }
@@ -76,5 +85,16 @@ extension FlickrImageListController: FlickrImageListDelegate {
         self.images = images
         collectionView.reloadData()
         previewDelegate?.reloadList(images)
+        
+    }
+}
+
+//MARK: Transition
+extension FlickrImageListController: UINavigationControllerDelegate, TransitionInfo {
+    func navigationController(_ navigationController: UINavigationController, animationControllerFor operation: UINavigationController.Operation, from fromVC: UIViewController, to toVC: UIViewController) -> UIViewControllerAnimatedTransitioning? {
+        if fromVC is TransitionInfo && toVC is TransitionInfo {
+            return MoveElementsTransition()
+        }
+        return nil
     }
 }

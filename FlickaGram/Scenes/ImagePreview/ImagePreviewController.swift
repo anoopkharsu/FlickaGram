@@ -7,22 +7,35 @@
 
 import UIKit
 
-class ImagePreviewController: UIViewController {
+class ImagePreviewController: UIViewController,TransitionInfo {
     
     @IBOutlet weak var collectionView: UICollectionView!
     var images = [FlickrImageListModels.Photo]()
+    var selectedIndex = IndexPath()
+    var cellView: ImageViewCell? {
+        collectionView.cellForItem(at: selectedIndex) as? ImageViewCell
+    }
+    
+    // callbacks
     var getNextImages: (() -> Void)?
-    var selectedIndex = 0
+    var indexChanged: ((IndexPath) -> Void)?
     
     override func viewDidLoad() {
         super.viewDidLoad()
         setup()
     }
+    
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        collectionView.alpha = 0
         DispatchQueue.main.async {
-            self.collectionView.scrollToItem(at: .init(item: self.selectedIndex, section: 0), at: .left, animated: false)
+            self.collectionView.scrollToItem(at: self.selectedIndex, at: .left, animated: false)
         }
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        collectionView.alpha = 1
     }
     
     func setup() {
@@ -69,12 +82,18 @@ extension ImagePreviewController:  UICollectionViewDataSource, UICollectionViewD
         cell.imageView.contentMode = .scaleAspectFit
         cell.labelBackgroundView.backgroundColor = .darkGray
         cell.setupData(images[indexPath.item])
+        
         if indexPath.item >= images.count-3 {
             getNextImages?()
         }
-        
-        
         return cell
+    }
+    
+    func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
+        if let index = collectionView.indexPathsForVisibleItems.first {
+            selectedIndex = index
+            indexChanged?(index)
+        }
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {

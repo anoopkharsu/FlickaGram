@@ -22,6 +22,7 @@
 		B817BF68292F184700A63BAF /* ImageViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B817BF66292F184700A63BAF /* ImageViewCell.swift */; };
 		B817BF69292F184700A63BAF /* ImageViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B817BF67292F184700A63BAF /* ImageViewCell.xib */; };
 		B817BF6D292F4DAE00A63BAF /* ImagePreviewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B817BF6C292F4DAE00A63BAF /* ImagePreviewController.swift */; };
+		B817BF6F292F7DB000A63BAF /* MoveElementsTransition.swift in Sources */ = {isa = PBXBuildFile; fileRef = B817BF6E292F7DB000A63BAF /* MoveElementsTransition.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -42,6 +43,7 @@
 		B817BF66292F184700A63BAF /* ImageViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageViewCell.swift; sourceTree = "<group>"; };
 		B817BF67292F184700A63BAF /* ImageViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ImageViewCell.xib; sourceTree = "<group>"; };
 		B817BF6C292F4DAE00A63BAF /* ImagePreviewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePreviewController.swift; sourceTree = "<group>"; };
+		B817BF6E292F7DB000A63BAF /* MoveElementsTransition.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoveElementsTransition.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -128,6 +130,7 @@
 			isa = PBXGroup;
 			children = (
 				B817BF5F292E810E00A63BAF /* MyImageView.swift */,
+				B817BF6E292F7DB000A63BAF /* MoveElementsTransition.swift */,
 			);
 			path = "Custom Classes";
 			sourceTree = "<group>";
@@ -236,6 +239,7 @@
 				B817BF3E292E5F7900A63BAF /* AppDelegate.swift in Sources */,
 				B817BF5D292E786E00A63BAF /* Constants.swift in Sources */,
 				B817BF6D292F4DAE00A63BAF /* ImagePreviewController.swift in Sources */,
+				B817BF6F292F7DB000A63BAF /* MoveElementsTransition.swift in Sources */,
 				B817BF5A292E730100A63BAF /* FlickrImageListModels.swift in Sources */,
 				B817BF62292E82E200A63BAF /* FlickrImageListInteractor.swift in Sources */,
 				B817BF60292E810E00A63BAF /* MyImageView.swift in Sources */,
