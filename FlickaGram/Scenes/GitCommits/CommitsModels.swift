@@ -34,6 +34,12 @@ struct CommitsModels {
         let name: String
         let email: String
         let date: String
+        
+        var fromattedDate: Date? {
+            let dateFormatter = DateFormatter()
+            dateFormatter.dateFormat = "yyyy'-'MM'-'dd'T'HH':'mm':'ssZ"
+            return dateFormatter.date(from: date)
+        }
     }
     
 }

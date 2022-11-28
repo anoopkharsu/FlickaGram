@@ -18,7 +18,17 @@ class CommitTableViewCell: UITableViewCell {
         userImageVIew.layer.cornerRadius = 12.5
         messageLabelView.text = data.message
         userNameLabelView.text = data.committer.name
-        timeLabelView.text = data.committer.date
+        
+        timeLabelView.text = data.committer.fromattedDate?.timeAgoDisplay()
     }
     
+}
+
+
+extension Date {
+    func timeAgoDisplay() -> String {
+        let formatter = RelativeDateTimeFormatter()
+        formatter.unitsStyle = .full
+        return formatter.localizedString(for: self, relativeTo: Date())
+    }
 }
