@@ -12,18 +12,92 @@
         <!--Navigation Controller-->
         <scene sceneID="gW2-SC-5jV">
             <objects>
-                <navigationController navigationBarHidden="YES" id="aPC-b9-hS8" sceneMemberID="viewController">
-                    <nil key="simulatedTopBarMetrics"/>
+                <navigationController id="aPC-b9-hS8" sceneMemberID="viewController">
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="2XE-MO-ygK">
+                        <rect key="frame" x="0.0" y="47" width="390" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <connections>
-                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="6RI-qO-sbR"/>
+                        <segue destination="b8n-Ro-Pvr" kind="relationship" relationship="rootViewController" id="IlY-we-HbW"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="D9B-ah-M3Y" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-1092" y="-28"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="dzG-BU-FFA">
+            <objects>
+                <viewController id="b8n-Ro-Pvr" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="1Zr-2T-YVm">
+                        <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="14" translatesAutoresizingMaskIntoConstraints="NO" id="jPB-vA-P0K">
+                                <rect key="frame" x="140.33333333333334" y="380.66666666666669" width="109.33333333333334" height="82.666666666666686"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="z6y-Pe-uwW">
+                                        <rect key="frame" x="0.0" y="0.0" width="109.33333333333333" height="34.333333333333336"/>
+                                        <state key="normal" title="Button"/>
+                                        <buttonConfiguration key="configuration" style="plain" title="Commits"/>
+                                        <connections>
+                                            <segue destination="5gK-9G-f3F" kind="show" id="33J-Xf-qnc"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="67O-cd-UyP">
+                                        <rect key="frame" x="0.0" y="48.333333333333314" width="109.33333333333333" height="34.333333333333343"/>
+                                        <state key="normal" title="Button"/>
+                                        <buttonConfiguration key="configuration" style="plain" title="FlickaGram"/>
+                                        <connections>
+                                            <segue destination="BYZ-38-t0r" kind="show" id="S5W-cU-klr"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                            </stackView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="0TP-WH-RLP"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="jPB-vA-P0K" firstAttribute="centerY" secondItem="1Zr-2T-YVm" secondAttribute="centerY" id="9II-bB-YCz"/>
+                            <constraint firstItem="jPB-vA-P0K" firstAttribute="centerX" secondItem="1Zr-2T-YVm" secondAttribute="centerX" id="jtS-fe-WoP"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="A9I-bt-Eqd"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ybF-g1-FnN" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="29" y="-20"/>
+        </scene>
+        <!--Commits View Controller-->
+        <scene sceneID="kih-wO-CSg">
+            <objects>
+                <viewController id="5gK-9G-f3F" customClass="CommitsViewController" customModule="FlickaGram" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="TWG-k7-Or4">
+                        <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" allowsSelection="NO" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="yhg-O6-xXH">
+                                <rect key="frame" x="0.0" y="91" width="390" height="719"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                            </tableView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="PkU-hT-L6I"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="yhg-O6-xXH" firstAttribute="leading" secondItem="PkU-hT-L6I" secondAttribute="leading" id="G5D-JI-ZNz"/>
+                            <constraint firstItem="PkU-hT-L6I" firstAttribute="bottom" secondItem="yhg-O6-xXH" secondAttribute="bottom" id="TNN-Ui-cn2"/>
+                            <constraint firstItem="PkU-hT-L6I" firstAttribute="trailing" secondItem="yhg-O6-xXH" secondAttribute="trailing" id="coF-HT-AaA"/>
+                            <constraint firstItem="yhg-O6-xXH" firstAttribute="top" secondItem="PkU-hT-L6I" secondAttribute="top" id="tTp-jo-KTM"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="0cC-TV-fOJ"/>
+                    <connections>
+                        <outlet property="tableView" destination="yhg-O6-xXH" id="sMT-Wi-nSH"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="FyR-Ed-2c3" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1142" y="-215"/>
         </scene>
         <!--Flickr Image List Controller-->
         <scene sceneID="tne-QT-ifu">
@@ -34,7 +108,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" contentInsetAdjustmentBehavior="never" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="cfv-Z3-3Mw">
-                                <rect key="frame" x="0.0" y="47" width="390" height="797"/>
+                                <rect key="frame" x="0.0" y="91" width="390" height="753"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="1" minimumInteritemSpacing="1" id="hNE-OK-Ill">
                                     <size key="itemSize" width="128" height="128"/>
@@ -62,19 +136,18 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="68" y="-102"/>
+            <point key="canvasLocation" x="1142" y="471"/>
         </scene>
         <!--Image Preview Controller-->
         <scene sceneID="tmT-As-Lps">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="ZIt-JQ-iej" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
                 <viewController id="V2f-BZ-Lcp" customClass="ImagePreviewController" customModule="FlickaGram" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="qf7-Dj-SrW">
                         <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" pagingEnabled="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="0hJ-Dk-wIy">
-                                <rect key="frame" x="0.0" y="47" width="390" height="728.66666666666663"/>
+                                <rect key="frame" x="0.0" y="91" width="390" height="684.66666666666663"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <gestureRecognizers/>
                                 <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="0.0" minimumInteritemSpacing="0.0" id="hpb-Yd-LC3">
@@ -136,13 +209,14 @@
                         <outlet property="collectionView" destination="0hJ-Dk-wIy" id="qMS-vB-aqw"/>
                     </connections>
                 </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ZIt-JQ-iej" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
                 <swipeGestureRecognizer direction="down" id="yYV-F3-nio">
                     <connections>
                         <action selector="swipeDownRecognized:" destination="V2f-BZ-Lcp" id="BKH-wd-Vr8"/>
                     </connections>
                 </swipeGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="1141.5384615384614" y="-28.436018957345969"/>
+            <point key="canvasLocation" x="2523" y="471"/>
         </scene>
     </scenes>
     <resources>

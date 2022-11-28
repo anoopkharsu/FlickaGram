@@ -84,7 +84,6 @@ extension FlickrImageListController: FlickrImageListDelegate {
         self.images = images
         collectionView.reloadData()
         previewDelegate?.reloadList(images)
-        
     }
     
 }
