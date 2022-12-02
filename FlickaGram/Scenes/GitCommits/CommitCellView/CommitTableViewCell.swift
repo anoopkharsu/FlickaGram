@@ -8,7 +8,7 @@
 import UIKit
 
 class CommitTableViewCell: UITableViewCell {
-
+    
     @IBOutlet weak var messageLabelView: UILabel!
     @IBOutlet weak var userNameLabelView: UILabel!
     @IBOutlet weak var userImageVIew: UIImageView!
