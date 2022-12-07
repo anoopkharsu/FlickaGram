@@ -17,10 +17,10 @@
                 <rect key="frame" x="0.0" y="0.0" width="200" height="200"/>
                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 <subviews>
-                    <imageView autoresizesSubviews="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="sjO-3B-qlf" customClass="MyImageView" customModule="FlickaGram" customModuleProvider="target">
+                    <imageView autoresizesSubviews="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="profile" translatesAutoresizingMaskIntoConstraints="NO" id="sjO-3B-qlf" customClass="MyImageView" customModule="FlickaGram" customModuleProvider="target">
                         <rect key="frame" x="0.0" y="0.0" width="200" height="200"/>
                     </imageView>
-                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="a4G-SZ-rM5">
+                    <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="a4G-SZ-rM5">
                         <rect key="frame" x="0.0" y="163" width="200" height="37"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BnC-3r-PBA">
@@ -59,4 +59,7 @@
             <point key="canvasLocation" x="246.15384615384613" y="41.232227488151658"/>
         </collectionViewCell>
     </objects>
+    <resources>
+        <image name="profile" width="554" height="554"/>
+    </resources>
 </document>

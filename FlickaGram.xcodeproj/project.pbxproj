@@ -27,6 +27,7 @@
 		B86795F8293486AC00CEFB6F /* CommitsInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = B86795F7293486AC00CEFB6F /* CommitsInteractor.swift */; };
 		B86795FC29348E2000CEFB6F /* CommitTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B86795FA29348E2000CEFB6F /* CommitTableViewCell.swift */; };
 		B86795FD29348E2000CEFB6F /* CommitTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B86795FB29348E2000CEFB6F /* CommitTableViewCell.xib */; };
+		B878597829406160006EC266 /* CollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B878597729406160006EC266 /* CollectionViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -52,6 +53,7 @@
 		B86795F7293486AC00CEFB6F /* CommitsInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommitsInteractor.swift; sourceTree = "<group>"; };
 		B86795FA29348E2000CEFB6F /* CommitTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommitTableViewCell.swift; sourceTree = "<group>"; };
 		B86795FB29348E2000CEFB6F /* CommitTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CommitTableViewCell.xib; sourceTree = "<group>"; };
+		B878597729406160006EC266 /* CollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -84,6 +86,7 @@
 		B817BF3C292E5F7900A63BAF /* FlickaGram */ = {
 			isa = PBXGroup;
 			children = (
+				B878597729406160006EC266 /* CollectionViewController.swift */,
 				B817BF54292E617400A63BAF /* Supporting Files */,
 				B817BF6A292F40E700A63BAF /* Scenes */,
 				B817BF43292E5F7900A63BAF /* Main.storyboard */,
@@ -266,6 +269,7 @@
 				B817BF56292E641200A63BAF /* APIService.swift in Sources */,
 				B86795F8293486AC00CEFB6F /* CommitsInteractor.swift in Sources */,
 				B86795F42934867400CEFB6F /* CommitsViewController.swift in Sources */,
+				B878597829406160006EC266 /* CollectionViewController.swift in Sources */,
 				B817BF42292E5F7900A63BAF /* FlickrImageListController.swift in Sources */,
 				B817BF3E292E5F7900A63BAF /* AppDelegate.swift in Sources */,
 				B817BF5D292E786E00A63BAF /* Constants.swift in Sources */,
